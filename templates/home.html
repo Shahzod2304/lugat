@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Lug'at</title>
+    
+</head>
+<body>
+    
+{% extends 'base.html' %}
+{% block content %}
+<div style="margin: 60px;">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Online Lug'at</h4>
+        <hr>
+    </div>
+    <br>
+    <form method="GET" action="/" class="input-group mb-3">
+        <input name="a" value="{{a}}" type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <br>
+    <table class="table">
+        <thead class="table-dark">
+            <th><img width="25" height="25" src="https://cdn-icons-png.flaticon.com/512/206/206626.png" class="loaded"> English</th>
+            <th><img  width="25" height="25" id="details-enlarged-image" class="js-search-result-thumbnail responsive-img container--focus" src="https://as1.ftcdn.net/v2/jpg/02/68/57/58/1000_F_268575806_qIyi4PLoknyuHHYCtW83KTEss7mKEhwu.jpg">Uzbek</th>
+        </thead>
+        
+        <tbody>
+            {% if natija %}
+            {% for tarjima in natija %}
+            <tr>
+                <td>{{tarjima.english}}</td>
+                <td>{{tarjima.uzbek}}</td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
+</body>
+</html>
